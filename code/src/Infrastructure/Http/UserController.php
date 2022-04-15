@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http;
 
-class UserController
+use App\Domain\Contract\UserServiceInterface;
+
+class UserController extends AbstractController
 {
     //Создать пользователя
     //Вывести список пользователей
@@ -14,21 +16,26 @@ class UserController
     {
         $this->userService = $userService;
     }
+
     public function setService(UserServiceInterface $userService):void
     {
         $this->userService = $userService;
     }
 
-    public function actionGetUsers()
+    public function actionGetUsers():void
     {
         //$users = $this->userService->getUsers();
         //Вывод
 
+
+        echo $this->twig->render('users.html');
+
     }
 
-    public function actionSingUp()
+    public function actionSingUp():void
     {
         //$result = $this->userService->addUser($dtoUser);
+        echo '555';
     }
 
 }

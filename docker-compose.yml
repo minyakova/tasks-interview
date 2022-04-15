@@ -31,45 +31,6 @@ services:
       - ./fpm/php.ini:/usr/local/etc/php/conf.d/php-custom.ini
     networks:
       - app-network
-      
-  swaggerapi:
-    container_name: swaggerapi
-    image: swaggerapi/swagger-ui
-    ports:
-      - "8080:8080"
-    networks:
-      - app-network      
-
-  #контейнер с postgres
-  db:
-    image: postgres
-    container_name: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "db_demo"
-    volumes:
-      - ./dump:/docker-entrypoint-initdb.d
-    networks:
-      - app-network
-  
-  #контейнер с rabbitmq
-  rabbitmq:
-    container_name: rabbitmq
-    image: rabbitmq:3.7.5-management
-    working_dir: /app
-    hostname: rabbit-mq
-    container_name: rabbitmq
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-    environment:
-      RABBITMQ_DEFAULT_USER: user
-      RABBITMQ_DEFAULT_PASS: pass
-    networks:
-      - app-network
 
 #Docker Networks
 networks:

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="templates/css/style.css">
+    <script src="templates/js/ajax.js"></script>
+
+</head>
+
+<body>
+<div class="contain">
+    <form action="/" id="ajax-form" class="form-gs contain__form-gs" method="post">
+        <input type="hidden" name="form-id" value="form-contact">
+        <div class="title-form">Авторизация</div>
+        <div class="form-gs__item">
+            <label for="login" class="label-form">Логин: </label><input type="text" class="input-form" name="login"
+                                                                        value="">
+        </div>
+        <div class="form-gs__item">
+            <label for="pass" class="label-form">Пароль: </label><input type="text" class="input-form"
+                                                                          name="pass" value="">
+        </div>
+        <div class="form-gs__item">
+            <button class="but-send">Отправить</button>
+        </div>
+    </form>
+    <br>
+    <div id="result-form"></div>
+</div>
+</body>
+
+</html>

@@ -1,7 +1,16 @@
 <?php
 declare(strict_types=1);
 
+namespace App\Infrastructure\Repository;
+
+use App\Application\Input\CreateUserDto;
+use App\Domain\Contract\UserRepositoryInterface;
+use App\Domain\Entity\User;
+use Exception;
+
+
 class UserRepository implements UserRepositoryInterface
+
 {
 
 
@@ -25,11 +34,17 @@ class UserRepository implements UserRepositoryInterface
             $dto::$pass
         );
         
-
+        return $user;
     }
 
-    public function selectUser(CreateUserDto $dto):User
+    public function selectUser(CreateUserDto $dto):bool
     {
+        //По архитектуре не верно, надо переделать
+        return (new User($dto))->select();
+
+        //$login = $user->getLogin();
+        //$pass = $user->getPass();
+
 
     }
 }

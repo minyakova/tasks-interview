@@ -3,14 +3,20 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http;
 
-class HomeController
+use App\Application\Input\CreateUserDto;
+use App\Domain\Contract\UserServiceInterface;
+use Exception;
+use Twig;
+
+class HomeController extends AbstractController
 {
     //Сделать авторизацию
     private UserServiceInterface $userService;
-
-    public function construct(UserServiceInterface $userService)
+    public function __construct(UserServiceInterface $userService)
     {
+        parent::__construct();
         $this->userService = $userService;
+
     }
 
     public function setService(UserServiceInterface $userService):void
@@ -18,22 +24,34 @@ class HomeController
         $this->userService = $userService;
     }
 
-    public function actionIndex()
+    public function actionIndex():void
     {
-       /*
-        $dto = CreateUserDto::fromArray($_POST);
-        $result = $this->userService->userAuthorization($dto);
 
-        if(!$result) {
-            throw new \Exception("Пользователь не найден! Введите данные правильно");
-            header("HTTP/1.1 401 Unauthorized");
-        }
+          if($_POST['form-id']) {
 
-        //Пользователь не найден! Введите данные правильно
-        //Пароль не верный, повторите ввод пароля
-        header("HTTP/1.1 200 OK");
-        */
+                try{
+                    $dto = CreateUserDto::fromArray($_POST);
+                    $this->userService->userAuthorization($dto);
+
+                    header("Location: /users");
+                    exit();
+                }catch(Exception $e){
+                    header("HTTP/1.1 401 Unauthorized");
+                    echo  $e->getMessage();
+                }
+
+          }
+
+       echo $this->twig->render('index.html');
+
     }
 
+    public function actionResult():void
+    {
+        //echo '777';
+        //echo $this->twig->render('users.html');
+        //header("HTTP/1.1 201 OK");
+
+    }
 
 }
