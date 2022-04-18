@@ -13,7 +13,7 @@ class UserFactory implements UserFactoryInterface
     private User $user;
 
     public function build(
-        CreateUserDto $dto
+        ?CreateUserDto $dto
     ):User
     {
         try{

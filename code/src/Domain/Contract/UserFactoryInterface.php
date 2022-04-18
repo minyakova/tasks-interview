@@ -8,6 +8,6 @@ use App\Domain\Entity\User;
 
 interface UserFactoryInterface
 {
-    public function build(CreateUserDto $dto):User;
+    public function build(?CreateUserDto $dto):User;
 
 }
