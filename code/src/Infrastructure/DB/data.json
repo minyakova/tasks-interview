@@ -1,1 +1,23 @@
-{"user1":"pass2"}
+[
+  {
+    "login": "userNull",
+    "pass": "3hfL9#ew",
+    "firstname": "Пользователь",
+    "lastname": "Нулевой",
+    "age": 43
+  },
+  {
+    "login": "user1",
+    "pass": "pass1",
+    "firstname": "Ivan",
+    "lastname": "Ivanov",
+    "age": 22
+  },
+  {
+    "login": "user2",
+    "pass": "pass2",
+    "firstname": "Artem",
+    "lastname": "Sinizin",
+    "age": 34
+  }
+]

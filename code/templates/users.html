@@ -14,7 +14,16 @@
 
 <body>
 <div class="contain">
-    <span>Выйти из системы</span>
+    <a href="exit"><span>Выйти из системы</span></a>
+    <table><thead><th>Фамилия</th><th>Имя</th><th>Возраст</th></thead>
+    {% for user in users %}
+        <tr>
+            <td>{{user.lastname}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    {% endfor %}
+    </table>
 </div>
 </body>
 

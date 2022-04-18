@@ -6,12 +6,16 @@ namespace App\Infrastructure\Http;
 use App\Application\Input\CreateUserDto;
 use App\Domain\Contract\UserServiceInterface;
 use Exception;
-use Twig;
 
 class HomeController extends AbstractController
 {
-    //Сделать авторизацию
+    //Сделать рефакторинг
+    //Сделать проверку на пустоту
+    //Проверить авторизацию
+    //Установить права доступа
+
     private UserServiceInterface $userService;
+
     public function __construct(UserServiceInterface $userService)
     {
         parent::__construct();
@@ -27,7 +31,7 @@ class HomeController extends AbstractController
     public function actionIndex():void
     {
 
-          if($_POST['form-id']) {
+          if($_POST['form-id']=='form-contact'){
 
                 try{
                     $dto = CreateUserDto::fromArray($_POST);
@@ -42,16 +46,9 @@ class HomeController extends AbstractController
 
           }
 
-       echo $this->twig->render('index.html');
+          echo $this->twig->render('index.html');
 
     }
 
-    public function actionResult():void
-    {
-        //echo '777';
-        //echo $this->twig->render('users.html');
-        //header("HTTP/1.1 201 OK");
-
-    }
 
 }

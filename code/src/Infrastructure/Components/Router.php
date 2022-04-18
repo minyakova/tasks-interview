@@ -55,11 +55,14 @@ class Router
                 $controllerName = "App\Infrastructure\Http\\".$handler[0]."Controller";
                 $serviceName = "App\Application\Service\UserService";
                 $repositoryName = "App\Infrastructure\Repository\UserRepository";
+                $factoryName = "App\Infrastructure\Factory\UserFactory";
 
-                //DI
+                //DI(нужен паттерн Цепочка обязанностей)
                 $app = new $controllerName(
                     new $serviceName(
-                        new $repositoryName()
+                        new $repositoryName(
+                            new $factoryName()
+                        )
                     )
                 );
 

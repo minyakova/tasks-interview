@@ -101,6 +101,10 @@ body {
     justify-content: flex-end;
 }
 
+.form-gs__item1 {
+    justify-content:space-around;
+}
+
 .title-form {
     font-size: 18px;
     font-weight: 600;
@@ -119,9 +123,15 @@ body {
     color: #5d5d5d;
     cursor: pointer;
 }
+
 .but-send {
     background: #808080;
     color: #fff;
     border: 5px;
     padding: 8px;
+    font-size: 14px;
+    display:inline-block;
+    margin-right: 3px;
+
 }
+

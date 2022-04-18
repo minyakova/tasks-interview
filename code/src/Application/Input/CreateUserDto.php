@@ -35,6 +35,9 @@ class CreateUserDto
 
         self::$login = $arrayFromPost['login'];
         self::$pass = $arrayFromPost['pass'];
+        if($arrayFromPost['firstname']) self::$firstname = $arrayFromPost['firstname'];
+        if($arrayFromPost['lastname']) self::$lastname = $arrayFromPost['lastname'];
+        if($arrayFromPost['age']) self::$lastname = $arrayFromPost['age'];
 
         return new CreateUserDto();
     }
