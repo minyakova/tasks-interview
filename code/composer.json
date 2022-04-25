@@ -1,0 +1,14 @@
+{
+	"autoload": {
+		"psr-4": {
+			"App\\": "src"
+		}
+	},
+	"require": {
+		"ext-pdo": "*",
+		"ext-json": "*",
+		"twig/twig": "^3.0",
+		"nikic/fast-route": "^1.3"
+
+    }
+}
